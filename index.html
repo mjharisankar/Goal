@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Goal Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Goal Review</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>My Custom Goals</h1>
+  <h1>Weekly Goal Review</h1>
+  <div id="week-selector">
+    <label for="week">Week Number:</label>
+    <input type="number" id="week" min="1" value="1">
+    <button onclick="loadReview()">Load</button>
+  </div>
 
-  <div id="goal-list"></div>
+  <div id="review-form"></div>
 
-  <input type="text" id="goal-input" placeholder="Enter new goal">
-  <button onclick="addGoal()">Add Goal</button>
+  <button id="save-btn" onclick="saveReview()">Save Review</button>
 
   <script src="script.js"></script>
 </body>
