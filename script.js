@@ -75,13 +75,12 @@ function downloadAllReviews() {
       content += weekData + "\\n";
     }
   }
-  const element = document.createElement("a");
-  const blob = new Blob([content], { type: "application/pdf" });
-  element.href = URL.createObjectURL(blob);
-  element.download = "Weekly_Reviews.pdf";
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
+
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+  const lines = pdf.splitTextToSize(content, 180);
+  pdf.text(lines, 10, 10);
+  pdf.save("Weekly_Reviews.pdf");
 }
 
 window.onload = () => {
